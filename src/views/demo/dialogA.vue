@@ -4,12 +4,33 @@
     <el-form-item label="名称字段">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
+    <el-form-item label="名称字段">
+      <el-input v-model="form.name"></el-input>
+    </el-form-item>
   </el-form>
   <!-- <el-button @click="handleSubmit">保存</el-button> -->
 </template>
 
 <script lang="ts" setup>
-import { reactive } from "vue";
+import { reactive,onMounted } from "vue";
 
 // const props=defineProps({
 //   state: {
@@ -39,6 +60,10 @@ function handleSubmit(callback) {
 //   }
 //   return form[prop];
 // }
+
+onMounted(() => {
+  alert('onMounted---')
+})
 defineExpose({
   // getState,
   handleSubmit,

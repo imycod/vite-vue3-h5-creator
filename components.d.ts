@@ -13,6 +13,7 @@ declare module 'vue' {
     ControlsTabs: typeof import('./src/components/controls-tabs/controls-tabs.vue')['default']
     Dialog: typeof import('./src/components/dialog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCascader: typeof import('element-plus/es')['ElCascader']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']

@@ -2,10 +2,9 @@
     <div>
         <el-button type="primary" @click="handleClick(1)">业务组件1</el-button>
         <el-button type="primary" @click="handleClick(2)">业务组件2</el-button>
-        <el-button type="primary" @click="handleClick(3)">业务组件3</el-button>
-        <controlsDialog ref="controlsDialogRef"></controlsDialog>
+        <controlsDialog ref="controlsDialogRef" destroy></controlsDialog>
 
-        <controlsTabs ref="controlsTabRef"></controlsTabs>
+        <controlsTabs ref="controlsTabRef" :destroy="false"></controlsTabs>
     </div>
 </template>
 

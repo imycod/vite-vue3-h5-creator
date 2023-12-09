@@ -1,7 +1,14 @@
 <template>
+    {{ form.deptId }}
     <el-form :model="form">
-        <el-form-item label="名称字段">
+        <el-form-item label="姓名">
             <el-input v-model="form.name" />
+        </el-form-item>
+        <el-form-item label="部门">
+            <el-cascader clearable v-model="form.deptId" :options="options" filterable :props="{
+                label:'name',
+                value:'id'
+            }" @change="handleChange" />
         </el-form-item>
         <el-form-item label="年龄字段">
             <el-input v-model="form.age" />
@@ -10,7 +17,9 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from "vue"
+import { useCommonStore } from "@/stores/common"
+
+import { reactive, onMounted, ref } from "vue"
 
 const props = defineProps({
     data: {
@@ -19,24 +28,34 @@ const props = defineProps({
     }
 })
 
+const options = ref([])
 const form = reactive({
     name: "",
     age: "",
+    deptId: "",
 })
 
+function handleChange() {
+
+}
+
+
 function initState(state) {
-    console.log(state)
     Object.keys(state).forEach((key) => {
         form[key] = state[key];
     });
 }
 
+const commonStore = useCommonStore()
 onMounted(() => {
     initState(props.data)
+    options.value = commonStore.deptList
 })
 
 // 实现此接口
 function handleSubmit() {
+    console.log(form);
+    throw new Error("handleSubmit error");
     alert("操作业务B组件逻辑和数据" + form.name);
 }
 

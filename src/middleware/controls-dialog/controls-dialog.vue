@@ -1,6 +1,6 @@
 <template>
   <el-dialog v-model="state.visible" :title="state.title" :before-close="close">
-    <component :is="componentName" ref="componentRef" :state="componentState"></component>
+    <component :is="componentName" ref="componentRef" v-if="destroy && state.visible" :state="componentState"></component>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="close">Cancel</el-button>
@@ -13,6 +13,13 @@
 <script setup lang="ts">
 import { ref,nextTick } from "vue";
 import useDialog from "@/hooks/useDialog.ts";
+
+const props= defineProps({
+  destroy: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const { setState: setDialogState, state, close } = useDialog();
 

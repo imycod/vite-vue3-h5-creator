@@ -1,7 +1,8 @@
 <template>
     <el-tabs v-model="state.active" @tab-click="tabClick">
         <el-tab-pane v-for="tab in state.options" :label="tab.label" :name="tab.tabName">
-            <component :data-key="tab.tabName" :is="tab.componentName" ref="componentRef" :state="tab.componentState"></component>
+            <component :key="tab.tabName" :data-key="tab.tabName" :is="tab.componentName" ref="componentRef" :state="tab.componentState"></component>
+            <!-- v-if="(!destroy && (state.active === tab.tabName))" -->
         </el-tab-pane>
     </el-tabs>
 </template>
@@ -10,6 +11,13 @@
 import useTab from "@/hooks/useTab.ts"
 
 import {nextTick} from "vue"
+
+const props= defineProps({
+  destroy: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const { state, initState,componentRef } = useTab()
 

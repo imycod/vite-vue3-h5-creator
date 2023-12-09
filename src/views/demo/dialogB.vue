@@ -1,6 +1,7 @@
 <template>
   <el-table	:data="form.tableData" :columns="columns" border>
-    <el-table-column prop="name" label="部门名称" />
+    <el-table-column prop="name" label="用户名称" />
+    <el-table-column prop="deptname" label="部门名称" />
     <el-table-column prop="age" label="年龄"></el-table-column>
     <el-table-column prop="default" label="操作">
       <template #default="{ row }">
@@ -19,6 +20,11 @@ const columns = [
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
+  },
+  {
+    title: '部门名称',
+    dataIndex: 'deptname',
+    key: 'deptname',
   },
   {
     title: '年龄',

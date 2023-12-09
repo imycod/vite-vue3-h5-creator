@@ -14,8 +14,12 @@ import { ref } from "vue"
 const coreFormRef = ref(null)
 
 const handleSubmit = (close) => {
-    coreFormRef.value.handleSubmit()
-    close(true)
+    try {
+        coreFormRef.value.handleSubmit()
+        close(true)
+    } catch (error) {
+        alert(error.message)
+    }
 }
 
 const setState = (row) => {
