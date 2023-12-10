@@ -10,7 +10,6 @@
             </template>
         </el-table-column>
     </el-table>
-
     <middlewareComp ref="middleware"></middlewareComp>
 </template>
   

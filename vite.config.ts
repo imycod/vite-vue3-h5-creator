@@ -11,6 +11,9 @@ import postcsspxtoviewport from "postcss-px-to-viewport";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    "import.meta.vitest": "undefined",
+  },
   plugins: [
     vue(),
     AutoImport({
@@ -49,6 +52,7 @@ export default defineConfig({
     },
   },
   build: {
+    minify: true,
     outDir: "dist", // 打包输出目录
     chunkSizeWarningLimit: 1500, // 代码分包阈值
     rollupOptions: {
