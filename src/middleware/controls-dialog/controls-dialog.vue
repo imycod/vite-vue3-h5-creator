@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref,nextTick } from "vue";
+import { ref, nextTick } from "vue";
 import useDialog from "@/hooks/useDialog.ts";
 
-const props= defineProps({
+const props = defineProps({
   destroy: {
     type: Boolean,
     default: true,
@@ -25,24 +25,26 @@ const { setState: setDialogState, state, close } = useDialog();
 
 const componentName = ref("");
 const componentRef = ref(null);
-const componentState=ref(null);
+const componentState = ref(null);
 const setState = (state) => {
   componentName.value = state.componentName;
   componentState.value = state.data
   setDialogState({ title: state.title, visible: state.visible });
 
-  nextTick(()=>{
-    componentRef.value.initState && componentRef.value.initState(state.data);
+  nextTick(() => {
+    if (state.data) {
+      componentRef.value.initState && componentRef.value.initState(state.data);
+    }
   })
 };
 const handleSubmit = () => {
   try {
-    componentRef.value.handleSubmit((done)=>{
-      if (done){
+    componentRef.value.handleSubmit((done = true) => {
+      if (done) {
         close();
       }
     });
-  }catch (e) {
+  } catch (e) {
     alert('出错了')
   }
 

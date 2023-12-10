@@ -1,6 +1,6 @@
 <template>
     <ui-dialog ref="uiDialogRef" @confirm="handleSubmit">
-        <template #default="{ data }">
+        <template #body="{ data }">
             <core-form :data="data" ref="coreFormRef"></core-form>
         </template>
     </ui-dialog>

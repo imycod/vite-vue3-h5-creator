@@ -24,6 +24,15 @@ const routes: Array<RouteRecordRaw> = [
       icon: "info",
     },
   },
+  {
+    path: "/recruiment",
+    name: "Recruiment",
+    component: () => import("@/views/recruiment/form-table/index.vue"),
+    meta: {
+      title: "Recruiment",
+      icon: "info",
+    },
+  },
 ];
 
 const router = createRouter({

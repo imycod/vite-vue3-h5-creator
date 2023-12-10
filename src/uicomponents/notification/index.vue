@@ -58,7 +58,7 @@ const close = () => {
 // })
 </script>
   
-<style>
+<style lang="scss" scoped>
 .notification {
     transition: all 900ms ease-out;
     opacity: 0;
@@ -116,6 +116,9 @@ const close = () => {
 .notification__button {
     border: 0;
     background-color: transparent;
+    img{
+        width: 15px;
+    }
 }
 </style>
   
