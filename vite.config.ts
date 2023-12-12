@@ -4,6 +4,7 @@ import vue from "@vitejs/plugin-vue";
 import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import AutoImport from "unplugin-auto-import/vite";
+import vueSetupExtend from "vite-plugin-vue-setup-extend";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { VantResolver } from "@vant/auto-import-resolver";
@@ -16,9 +17,18 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueSetupExtend(), 
     AutoImport({
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+      ],
+      defaultExportByFilename: false,
       resolvers: [ElementPlusResolver()],
       imports: ["vue", "vue-router", "pinia"],
+      dirs: ["./src/hooks/**", "./src/utils/**"],
+      dts: "./auto-imports.d.ts", 
     }),
     Components({
       resolvers: [ElementPlusResolver(), VantResolver()],
@@ -46,7 +56,7 @@ export default defineConfig({
           minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
           mediaQuery: true, // 是否在媒体查询的css代码中也进行转换，默认false
           replace: true, // 是否转换后直接更换属性值
-          exclude: [/^((?!\/src\/views\/h5\/).)*$/], 
+          exclude: [/^((?!\/src\/views\/h5\/).)*$/],
           landscape: false, // 是否处理横屏情况
         }),
       ],

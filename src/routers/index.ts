@@ -33,6 +33,38 @@ const routes: Array<RouteRecordRaw> = [
       icon: "info",
     },
   },
+  {
+    path: "/todoapp",
+    name: "TodoApp",
+    component: () => import("@/views/todo-app/index.vue"),
+    meta: {
+      title: "TodoApp",
+      icon: "info",
+    },
+  },
+  {
+    path: "/bom-api",
+    name: "BomApi",
+    component: () => import("@/views/bom-api/index.vue"),
+    redirect: "/cache/bom-api/scroll",
+    meta: {
+      title: "BomApi",
+      icon: "BomApi",
+      isKeepAlive: true,
+    },
+    children: [
+      {
+        path: "/cache/bom-api/scroll",
+        name: "BomApiScroll",
+        component: () => import("@/views/bom-api/cache-scroll.vue"),
+        meta: {
+          title: "BomApiScroll",
+          icon: "BomApiScroll",
+          isKeepAlive: true,
+        },
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

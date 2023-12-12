@@ -10,8 +10,7 @@ import App from "./App.vue";
 
 const app = createApp(App);
 
-
-app.use(middlewareComps).use(store).use(router).mount("#app");
+app.use(store).use(middlewareComps).use(router).mount("#app");
 
 // import notification from "@/hooks/useNotice.ts";
 // 全局配置
@@ -23,4 +22,4 @@ app.use(middlewareComps).use(store).use(router).mount("#app");
 // app?.innerHTML=isString(num.toString()) ? 'XXX' : 'aaa'
 
 
-// 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
+// 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

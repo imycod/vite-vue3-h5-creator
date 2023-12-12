@@ -29,6 +29,6 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "node_modules/.pnpm/unplugin-auto-import@0.16.7/node_modules/unplugin-auto-import/auto-imports.d.ts"
-, "src/tests/notification.test.js", "src/tests/notification.test.js"  ],
+, "src/tests/notification.test.js", "src/tests/notification.test.js", "src/tests/ui-dialog.test.js"  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

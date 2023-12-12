@@ -1,6 +1,8 @@
 <template>
     <el-dialog v-model="state.visible" :title="state.title" :before-close="close">
-        <slot name="body" v-if="state.visible" :data="state.data"></slot>
+        <span data-test="body">
+            <slot name="body"  v-if="state.visible" :data="state.data"></slot>
+        </span>    
         <template #footer>
             <slot name="footer">
                 <span class="dialog-footer">
@@ -12,7 +14,7 @@
     </el-dialog>
 </template>
 
-<script setup lang="ts">
+<script name="ui-dialog" setup lang="ts">
 import useDialog from "@/hooks/useDialog"
 
 // const props = defineProps({

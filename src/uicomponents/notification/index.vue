@@ -14,7 +14,7 @@
         </button>
     </div>
 </template>
-<script setup lang="ts">
+<script name="ui-notification" setup lang="ts">
 import { computed, reactive, defineProps, defineEmits } from 'vue';
 
 const props = defineProps(['type', 'message']);
