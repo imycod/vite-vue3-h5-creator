@@ -23,14 +23,14 @@
 </template>
 
 <script lang="ts" setup>
-import controlsDialog, {
-  controlsDialogRef,
-} from "@/middleware/controls-dialog/controls-dialog.ts";
+// import controlsDialog, { controlsDialogRef } from "@/middleware/controls-dialog/controls-dialog.ts";
+import controlsDialog from "@/middleware/controls-dialog/controls-dialog.ts";
 
 import PushComp from "./pushComp.vue"
 
 import { reactive } from "vue";
 
+const controlsDialogRef=ref()
 
 const columns = [
   {
@@ -134,6 +134,10 @@ function initState(state) {
 //   }
 //   return form[prop];
 // }
+
+onMounted(()=>{
+  alert('onMounted---')
+})
 defineExpose({
   handleSubmit,
   initState,

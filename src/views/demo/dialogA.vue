@@ -33,7 +33,7 @@
 import { reactive,onMounted } from "vue";
 
 // const props=defineProps({
-//   state: {
+//   data: {
 //     type: Object,
 //     default: () => ({})
 //   },
@@ -51,8 +51,8 @@ function initState(state) {
 }
 function handleSubmit(callback) {
   alert("操作业务A组件逻辑和数据" + form.name);
-  throw new Error('接口错误')
-  callback && callback(true)
+  // throw new Error('接口错误')
+  callback()
 }
 // function getState(prop='all') {
 //   if (prop === '') {
@@ -62,7 +62,7 @@ function handleSubmit(callback) {
 // }
 
 onMounted(() => {
-  alert('onMounted---')
+  alert('onMounted---111')
 })
 defineExpose({
   // getState,
