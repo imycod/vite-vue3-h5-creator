@@ -51,17 +51,20 @@ const handleSubmit = () => {
     //     close();
     //   }
     // });
-    callback(close);
-    // componentRef.value.handleSubmit((done = true) => {
-    //   try {
-    //     callback();
-    //     if (done) {
-    //       close();
-    //     }
-    //   } catch (error) {
-
-    //   }
-    // });
+    if (componentRef.value && componentRef.value.handleSubmit) {
+      componentRef.value.handleSubmit(async () => {
+        try {
+          const done = await callback();
+          if (done) {
+            close();
+          }
+        } catch (error) {
+          alert(error.message)
+        }
+      });
+    } else {
+      callback(close);
+    }
   } catch (e) {
     alert('出错了')
   }

@@ -19,15 +19,17 @@ const state = reactive({
 
     }
 })
-function handleSubmit(callback) {
-    // 做些内部组件销毁操作，取消监听，取消事件，数据清理等
-    callback()
-}
+// 两种情况，1 子组件实现了handleSubmit方法 2 子组件没实现该方法
+// function handleSubmit(callback) {
+//     // 做些内部组件销毁操作，取消监听，取消事件，数据清理等
+//     alert('做些子组件数据清理工作，调用父级callback')
+//     callback()
+// }
 function initState(data) {
     state.data = data
 }
 defineExpose({
-    handleSubmit,
+    // handleSubmit,
     initState,
 })
 </script>

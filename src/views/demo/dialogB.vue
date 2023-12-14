@@ -96,6 +96,8 @@ function handleChange(type, data) {
       data,
       callback: (close) => {
         alert(`业务组件BBBBBBBBB - dialogB的回调函数 ${type}`)
+        close()
+        // return true
       }
     });
   } else if (type === 'push-mutiple') {
