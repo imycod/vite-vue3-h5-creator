@@ -2,12 +2,13 @@
     <ui-dialog ref="uiDialogRef" @confirm="handleSubmit">
         <template #body="{ data }">
             <core-form :data="data" ref="coreFormRef"></core-form>
+            <button @click="plus">加</button>
         </template>
     </ui-dialog>
 </template>
 
 <script setup lang="ts">
-import UiDialog, { uiDialogRef } from "@/uicomponents/dialog/index.ts"
+import UiDialog, { uiDialogRef,counter } from "@/uicomponents/dialog/index.ts"
 import useNotice from "@/hooks/useNotice"
 import CoreForm from "./form.vue"
 
@@ -23,6 +24,11 @@ const handleSubmit = (close) => {
     } catch (error) {
         alert(error.message)
     }
+}
+
+function plus() {
+    counter.value +=1
+    console.log(counter.value);
 }
 
 const setState = (row) => {

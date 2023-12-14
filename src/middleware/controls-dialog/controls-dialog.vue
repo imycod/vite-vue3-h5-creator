@@ -1,6 +1,6 @@
 <template>
   <el-dialog v-model="state.visible" :title="state.title" :before-close="close">
-    <component :is="componentName" ref="componentRef" v-if="destroy && state.visible" :state="componentState"></component>
+    <component :is="componentName" ref="componentRef" v-if="destroy && state.visible" :data="componentData"></component>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="close">Cancel</el-button>
@@ -25,10 +25,17 @@ const { setState: setDialogState, state, close } = useDialog();
 
 const componentName = ref("");
 const componentRef = ref(null);
-const componentState = ref(null);
+const componentData = ref(null);
+// 接口供外部实现
+let callback = () => { }
 const setState = (state) => {
   componentName.value = state.componentName;
-  componentState.value = state.data
+  componentData.value = state.data
+
+  if (state.callback) {
+    callback = state.callback;
+  }
+
   setDialogState({ title: state.title, visible: state.visible });
 
   nextTick(() => {
@@ -39,11 +46,22 @@ const setState = (state) => {
 };
 const handleSubmit = () => {
   try {
-    componentRef.value.handleSubmit((done = true) => {
-      if (done) {
-        close();
-      }
-    });
+    // componentRef.value.handleSubmit((done = true) => {
+    //   if (done) {
+    //     close();
+    //   }
+    // });
+    callback(close);
+    // componentRef.value.handleSubmit((done = true) => {
+    //   try {
+    //     callback();
+    //     if (done) {
+    //       close();
+    //     }
+    //   } catch (error) {
+
+    //   }
+    // });
   } catch (e) {
     alert('出错了')
   }
