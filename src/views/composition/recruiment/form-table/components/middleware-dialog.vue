@@ -16,7 +16,6 @@ import UiDialog, { uiDialogRef } from "@/uicomponents/dialog/index.ts"
 import CoreForm from "./Core-Form.vue"
 
 import useHook from "./index"
-import useDialog from "@/hooks/useDialog";
 
 const coreFormRef = ref(null)
 
@@ -43,7 +42,7 @@ const {
     handleExport,
 } = useHook({ wrapper: {
     close: () => {
-        uiDialogRef.value.close()
+        uiDialogRef.value.handleClose()
     }
 }, coreFormRef })
 
@@ -58,7 +57,7 @@ function handleClick(n) {
             handleExport()
         }
         if (n == 0) {
-            alert('关闭')
+            // alert('关闭')
             handleClose()
         }
     } catch (error) {
@@ -69,7 +68,9 @@ function handleClick(n) {
 function setState(newState) {
     uiDialogRef.value.setState(newState)
 }
-
+onMounted(()=>{
+    alert('onMounted')
+})
 defineExpose({
     setState
 })

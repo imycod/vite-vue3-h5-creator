@@ -72,7 +72,6 @@ export function useDynamicTag() {
 export default function ({ wrapper, coreFormRef }) {
   function handleClose() {
     wrapper.close();
-    alert(1)
   }
   function handleAddFinalEva() {
     coreFormRef.value.setState({

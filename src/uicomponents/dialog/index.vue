@@ -1,13 +1,13 @@
 <template>
-    <el-dialog v-model="state.visible" :title="state.title" :before-close="close">
+    <el-dialog v-model="state.visible" :title="state.title" :before-close="handleClose">
         <span data-test="body">
-            <slot name="body"  v-if="state.visible" :data="state.data"></slot>
-        </span>    
+            <slot name="body" v-if="isVisible" :data="state.data"></slot>
+        </span>
         <template #footer>
             <slot name="footer">
                 <span class="dialog-footer">
                     <el-button type="primary" @click="confirm">保存</el-button>
-                    <el-button @click="close">取消</el-button>
+                    <el-button @click="handleClose">取消</el-button>
                 </span>
             </slot>
         </template>
@@ -36,14 +36,20 @@ function confirm() {
     })
 }
 
+const isVisible = ref(false)
 
 // 中间件必须实现setState方法
 function setState(newState) {
+    isVisible.value = newState.visible
     initState(newState)
+}
+function handleClose() {
+    close()
+    setTimeout(() => isVisible.value = false, 200)
 }
 
 defineExpose({
     setState,
-    close,
+    handleClose,
 })
 </script>

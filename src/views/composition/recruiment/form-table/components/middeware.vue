@@ -24,7 +24,7 @@ defineExpose({
 </script>
 
 <template>
-  <el-drawer class="drawer-container" v-model="drawer.state.visible" :show-close="false" :size="1050" direction="rtl">
+  <el-drawer class="drawer-container" v-model="drawer.state.visible" :show-close="false" :before-close="handleClose" :size="1050" direction="rtl">
     <template #header="{ close, titleId, titleClass }">
       <div class="my-header" style="display: flex; justify-content: space-between">
         <span :id="titleId" :class="titleClass">面试评估</span>

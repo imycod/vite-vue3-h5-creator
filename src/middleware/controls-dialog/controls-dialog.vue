@@ -29,6 +29,8 @@ const componentData = ref(null);
 // 接口供外部实现
 let callback = () => { }
 const setState = (state) => {
+  console.log('state000',state);
+  
   componentName.value = state.componentName;
   componentData.value = state.data
 

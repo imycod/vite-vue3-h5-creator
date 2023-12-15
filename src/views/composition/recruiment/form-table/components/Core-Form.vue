@@ -36,6 +36,7 @@ import EdoSub from "./edu-sub.vue";
 import FnrSub from "./Fnr-sub.vue";
 import FtrSub from "./ftr-sub.vue";
 import HrSub from "./hr-sub.vue"
+import { onMounted } from "vue";
 
 const state=reactive({
     isAddFinalEva:false
@@ -83,6 +84,9 @@ function handleEdit(type) {
 const setState = (newState) => {
     Object.assign(state, newState)
 }
+onMounted(()=>{
+    alert('onMounted')
+})
 defineExpose({
     setState
 })
