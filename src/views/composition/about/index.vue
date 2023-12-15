@@ -13,13 +13,16 @@ import { ref, onMounted, shallowRef, nextTick } from "vue"
 
 import controlsTabs from "@/middleware/controls-tabs/controls-tabs.vue"
 
-import controlsDialog, { controlsDialogRef } from "@/middleware/controls-dialog/controls-dialog.ts";
-// import controlsDialog from "@/middleware/controls-dialog/controls-dialog.ts";
+// import controlsDialog, { controlsDialogRef } from "@/middleware/controls-dialog/controls-dialog.ts";
+import controlsDialog from "@/middleware/controls-dialog/controls-dialog.ts";
 
 import DialogBusinessA from "./dialogA.vue";
 import DialogBusinessB from "./dialogB.vue";
+// const DialogBusinessA= defineAsyncComponent(() => import("./dialogA.vue"));
+// const DialogBusinessB= defineAsyncComponent(() => import("./dialogB.vue"));
 
-// const controlsDialogRef=ref()
+
+const controlsDialogRef = ref()
 function handleClick(n) {
   const BusinessComp = n === 1 ? DialogBusinessA : DialogBusinessB;
   controlsDialogRef.value && controlsDialogRef.value.setState({
@@ -29,7 +32,7 @@ function handleClick(n) {
     data: { name: 'wxs' },
     callback: (close) => {
       // close()
-      
+
       // 假设子组件实现了handleSubmit方法，父组件的callback就要返回是否关闭组件的状态
       return true
     }
@@ -39,7 +42,7 @@ function handleClick(n) {
 const controlsTabRef = ref(null)
 onMounted(() => {
   controlsTabRef.value.setState({
-    active:'businessA',
+    active: 'businessA',
     options: [
       {
         label: "业务A",

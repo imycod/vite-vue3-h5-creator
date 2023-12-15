@@ -1,7 +1,7 @@
 
 import { mount,createLocalVue } from "@vue/test-utils";
 
-import middleware from "@/views/business3/middleware.vue";
+import middleware from "@/views/composition/foo/middleware.vue";
 
 import { describe, expect, test, it } from "vitest";
 

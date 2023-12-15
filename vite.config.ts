@@ -9,6 +9,7 @@ import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import { VantResolver } from "@vant/auto-import-resolver";
 import postcsspxtoviewport from "postcss-px-to-viewport";
+import vueJsx from '@vitejs/plugin-vue-jsx'; // Vue-jsx插件
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +33,9 @@ export default defineConfig({
     }),
     Components({
       resolvers: [ElementPlusResolver(), VantResolver()],
+    }),
+    vueJsx({
+      include: ['src/**/*.tsx'],
     }),
   ],
   // 简写
@@ -61,6 +65,11 @@ export default defineConfig({
         }),
       ],
     },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/variables.scss";`,
+      },
+    },  
   },
   build: {
     minify: true,

@@ -7,34 +7,54 @@ import {
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: "/composition",
+    name: "Composition",
+    component: () => import("@/views/composition/index.vue"),
+    meta: {
+      title: "Composition",
+      icon: "composition",
+    },
+    children:[
+      {
+        path: "/composition/foo",
+        name: "Foo",
+        component: () => import("@/views/composition/foo/index.vue"),
+        meta: {
+          title: "Foo",
+          icon: "foo",
+        },
+      },
+      {
+        path: "/composition/about",
+        name: "About",
+        component: () => import("@/views/composition/about/index.vue"),
+        meta: {
+          title: "About",
+          icon: "about",
+        },
+      },
+      {
+        path: "/composition/recruiment",
+        name: "Recruiment",
+        component: () => import("@/views/composition/recruiment/form-table/index.vue"),
+        meta: {
+          title: "Recruiment",
+          icon: "recruiment",
+        },
+      },
+    ]
+  },
+  {
     path: "/",
     name: "Home",
-    component: () => import("@/views/business3/index.vue"),
+    component: () => import("@/views/index.vue"),
     meta: {
       title: "Home",
       icon: "home",
     },
   },
   {
-    path: "/about",
-    name: "About",
-    component: () => import("@/views/demo/index.vue"),
-    meta: {
-      title: "About",
-      icon: "info",
-    },
-  },
-  {
-    path: "/recruiment",
-    name: "Recruiment",
-    component: () => import("@/views/recruiment/form-table/index.vue"),
-    meta: {
-      title: "Recruiment",
-      icon: "info",
-    },
-  },
-  {
-    path: "/todoapp",
+    path: "/todo-app",
     name: "TodoApp",
     component: () => import("@/views/todo-app/index.vue"),
     meta: {
