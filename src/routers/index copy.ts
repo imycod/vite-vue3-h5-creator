@@ -5,6 +5,8 @@ import {
   RouteRecordRaw,
 } from "vue-router";
 
+import {Demo} from "@/views/jsx/demo.tsx"
+
 const routes: Array<RouteRecordRaw> = [
   {
     path:'/',
@@ -81,6 +83,15 @@ const routes: Array<RouteRecordRaw> = [
           },
         ],
       },
+      {
+        path: "/jsx",
+        name: "jsx",
+        component: () => Demo,
+        meta: {
+          title: "jsx",
+          icon: "jsx",
+        },
+      }
     ]
   },
   {

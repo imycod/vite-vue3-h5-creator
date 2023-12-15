@@ -110,7 +110,7 @@ function handleChange(type, data) {
       data,
       callback: (close) => {
         alert(`业务组件B dialogB的回调函数 ${type}`)
-        close()
+        close && close()
         // return true
       }
     });
