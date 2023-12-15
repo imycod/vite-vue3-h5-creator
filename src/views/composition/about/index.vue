@@ -35,7 +35,8 @@ function handleClick(n) {
 
       // 假设子组件实现了handleSubmit方法，父组件的callback就要返回是否关闭组件的状态
       return true
-    }
+    },
+    close,
   });
 }
 

@@ -21,10 +21,14 @@ const isVisible = ref(false)
 const componentName = ref();
 const componentRef = ref(null);
 const componentData = ref(null);
+
+// let initialState = {}
+let stateCache = {}
 // 接口供外部实现
 let callback = () => { }
 const setState = (state) => {
-  console.log('state000', state);
+  // 注意引用不可随意更改，否则深克隆
+  stateCache = state
 
   componentName.value = state.componentName;
   componentData.value = state.data
@@ -60,12 +64,13 @@ const handleSubmit = () => {
         } catch (error) {
           alert(error.message)
         }
-      });
+      }, { ...stateCache, close });
     } else {
       callback(close);
     }
   } catch (e) {
     alert('出错了')
+    console.log(e.message);
   }
 };
 

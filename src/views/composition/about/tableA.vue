@@ -96,7 +96,9 @@ function handleChange(type, data) {
       data,
       callback: (close) => {
         alert(`业务组件BBBBBBBBB - dialogB的回调函数 ${type}`)
-        close()
+        // 若子组件实现了handleSubmit则父组件必须返回是否关闭弹窗的状态
+        // close()
+        // 父组件可以返回一个状态
         // return true
       }
     });
@@ -109,6 +111,7 @@ function handleChange(type, data) {
       callback: (close) => {
         alert(`业务组件B dialogB的回调函数 ${type}`)
         close()
+        // return true
       }
     });
   }
