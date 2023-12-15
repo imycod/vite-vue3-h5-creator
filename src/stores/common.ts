@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useCommonStore = defineStore("common", {
+export const useCommon = defineStore("common", {
   state: () => ({
     // 部门树
     deptList: [],

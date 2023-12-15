@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCommonStore } from "@/stores/common"
+import { useCommon } from "@/stores/common"
 
 import { reactive, onMounted, ref } from "vue"
 import { getCascaderOptions } from "@/utils/selector";
@@ -50,7 +50,7 @@ function initState(initialState) {
     });
 }
 
-const commonStore = useCommonStore()
+const storesCommon = useCommon()
 onMounted(() => {
     initState(() => {
         const newState = props.data
@@ -58,7 +58,7 @@ onMounted(() => {
         return newState
     })
     // initState(props.data)
-    options.value = commonStore.deptList
+    options.value = storesCommon.deptList
 })
 
 // 实现此接口

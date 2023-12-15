@@ -38,20 +38,6 @@ const close = () => {
     state.message = ''
     emits('clear-notification')
 }
-// export default {
-//     name: "Notification",
-//     emits: ['clear-notification'],
-//     props: {
-//         type: {
-//             type: String,
-//             default: null,
-//         },
-//         message: {
-//             type: String,
-//             default: null,
-//         },
-//     },
-// };
 
 // onMounted(()=>{
 //     alert(1)

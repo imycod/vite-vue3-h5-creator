@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import middlewareComp from "./middleware.vue"
 
-import { useCommonStore } from "@/stores/common"
+import { useCommon } from "@/stores/common"
 import depttree from "./depttree"
 
 import { reactive, ref, onMounted } from "vue";
@@ -76,10 +76,10 @@ function handleClick(type, row) {
     }
 }
 
-const commonStore = useCommonStore()
+const storeCommon = useCommon()
 function setDept() {
     setTimeout(() => {
-        commonStore.setDeptList(depttree)
+        storeCommon.setDeptList(depttree)
     }, 1000)
 }
 onMounted(() => {
