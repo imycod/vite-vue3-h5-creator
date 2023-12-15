@@ -4,7 +4,7 @@
     <el-button type="primary" @click="handleClick(2)">业务组件2</el-button>
     <controlsDialog ref="controlsDialogRef"></controlsDialog>
 
-    <controlsTabs ref="controlsTabRef" :destroy="false"></controlsTabs>
+    <controlsTabs ref="controlsTabRef" :destroy="true"></controlsTabs>
   </div>
 </template>
 
@@ -57,7 +57,23 @@ onMounted(() => {
         tabName: "businessB",
         componentName: shallowRef(DialogBusinessB),
         data: {
-          name: 'wxs'
+          tableData: [
+            {
+              id: 1,
+              name: '张三1',
+              age: 18,
+            },
+            {
+              id: 2,
+              name: '李四1',
+              age: 19,
+            },
+            {
+              id: 3,
+              name: '王五1',
+              age: 20,
+            },
+          ],
         },
       },
     ],

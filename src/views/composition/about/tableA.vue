@@ -22,7 +22,7 @@
   <controlsDialog ref="controlsDialogRef" destroy></controlsDialog>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="tableA">
 // import controlsDialog, { controlsDialogRef } from "@/middleware/controls-dialog/controls-dialog.ts";
 import controlsDialog from "@/middleware/controls-dialog/controls-dialog.ts";
 
@@ -123,7 +123,8 @@ function handleSubmit(callback) {
 }
 
 function initState(state) {
-  console.log(state)
+  // alert('B')
+  console.log('/about about tableA initState',state)
   Object.keys(state).forEach((key) => {
     form[key] = state[key];
   });

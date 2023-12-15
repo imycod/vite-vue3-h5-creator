@@ -29,7 +29,7 @@
   <!-- <el-button @click="handleSubmit">保存</el-button> -->
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="formA">
 import { reactive,onMounted } from "vue";
 
 // const props=defineProps({
@@ -44,7 +44,8 @@ const form = reactive({
 });
 
 function initState(state) {
-  console.log('state---', state)
+  // alert('A')
+  console.log('/about about formA initState', state)
   Object.keys(state).forEach((key) => {
     form[key] = state[key];
   });
