@@ -136,7 +136,7 @@ function initState(state) {
 // }
 
 onMounted(()=>{
-  alert('onMounted---')
+  alert('/about tableA onMounted')
 })
 defineExpose({
   handleSubmit,

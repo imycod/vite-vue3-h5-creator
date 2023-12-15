@@ -62,7 +62,7 @@ function handleSubmit(callback) {
 // }
 
 onMounted(() => {
-  alert('onMounted---111')
+  alert('/about formA onMounted')
 })
 defineExpose({
   // getState,

@@ -1,6 +1,6 @@
 <template>
   <el-dialog v-model="state.visible" :title="state.title" :before-close="handleClose">
-    <component :is="componentName" ref="componentRef" v-if="destroy && state.visible" :data="componentData"></component>
+    <component :is="componentName" ref="componentRef" v-if="isVisible" :data="componentData"></component>
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="handleClose">Cancel</el-button>
@@ -11,17 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick,shallowRef} from "vue";
+import { ref, nextTick, shallowRef } from "vue";
 import useDialog from "@/hooks/useDialog.ts";
 
-const props = defineProps({
-  destroy: {
-    type: Boolean,
-    default: true,
-  },
-});
-
 const { setState: setDialogState, state, close } = useDialog();
+
+const isVisible = ref(false)
 
 const componentName = ref();
 const componentRef = ref(null);
@@ -29,8 +24,8 @@ const componentData = ref(null);
 // 接口供外部实现
 let callback = () => { }
 const setState = (state) => {
-  console.log('state000',state);
-  
+  console.log('state000', state);
+
   componentName.value = state.componentName;
   componentData.value = state.data
 
@@ -38,7 +33,8 @@ const setState = (state) => {
     callback = state.callback;
   }
 
-  console.log('state---',state);
+  isVisible.value = state.visible;
+
   setDialogState({ title: state.title, visible: state.visible });
 
   nextTick(() => {
@@ -75,6 +71,9 @@ const handleSubmit = () => {
 
 function handleClose() {
   close()
+  setTimeout(() => {
+    isVisible.value = false
+  }, 200)
 }
 defineExpose({
   setState,

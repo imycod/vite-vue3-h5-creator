@@ -2,7 +2,7 @@
   <div>
     <el-button type="primary" @click="handleClick(1)">业务组件1</el-button>
     <el-button type="primary" @click="handleClick(2)">业务组件2</el-button>
-    <controlsDialog ref="controlsDialogRef" destroy></controlsDialog>
+    <controlsDialog ref="controlsDialogRef"></controlsDialog>
 
     <controlsTabs ref="controlsTabRef" :destroy="false"></controlsTabs>
   </div>
@@ -16,10 +16,10 @@ import controlsTabs from "@/middleware/controls-tabs/controls-tabs.vue"
 // import controlsDialog, { controlsDialogRef } from "@/middleware/controls-dialog/controls-dialog.ts";
 import controlsDialog from "@/middleware/controls-dialog/controls-dialog.ts";
 
-import DialogBusinessA from "./dialogA.vue";
-import DialogBusinessB from "./dialogB.vue";
-// const DialogBusinessA= defineAsyncComponent(() => import("./dialogA.vue"));
-// const DialogBusinessB= defineAsyncComponent(() => import("./dialogB.vue"));
+import DialogBusinessA from "./formA.vue";
+import DialogBusinessB from "./tableA.vue";
+// const DialogBusinessA= defineAsyncComponent(() => import("./formA.vue"));
+// const DialogBusinessB= defineAsyncComponent(() => import("./tableA.vue"));
 
 
 const controlsDialogRef = ref()
